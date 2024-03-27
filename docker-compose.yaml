@@ -106,6 +106,7 @@ services:
       - "3100:3100"
     volumes:
       - ./local-config.yaml:/etc/loki/local-config.yaml
+      - ./loki:/loki
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - app_default
