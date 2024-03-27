@@ -106,7 +106,7 @@ services:
       - "3100:3100"
     volumes:
       - ./local-config.yaml:/etc/loki/local-config.yaml
-      - /wal:/wal
+      - loki_data:/wal
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - app_default
@@ -117,4 +117,5 @@ networks:
 
 volumes:
   prometheus_data: {}
+  loki_data:
   grafana_data: {}
