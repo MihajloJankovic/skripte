@@ -101,15 +101,12 @@ services:
       - app_default
 
   loki:
-    image: grafana/loki:latest
+    image: grafana/loki:2.9.2
     ports:
       - "3100:3100"
-    volumes:
-      - ./local-config.yaml:/etc/loki/local-config.yaml
-      - loki_data:/wal
     command: -config.file=/etc/loki/local-config.yaml
     networks:
-      - app_default
+      - loki
 
 networks:
   app_default:
@@ -117,5 +114,4 @@ networks:
 
 volumes:
   prometheus_data: {}
-  loki_data:
   grafana_data: {}
