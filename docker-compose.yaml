@@ -104,6 +104,8 @@ services:
     image: grafana/loki:latest
     ports:
       - "3100:3100"
+    volumes:
+      - ./local-config.yaml:/etc/loki/local-config.yaml
     command: -config.file=/etc/loki/local-config.yaml
     networks:
       - app_default
